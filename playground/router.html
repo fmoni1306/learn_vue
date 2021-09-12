@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div id="app">
+  <div>
+    <router-link to="/login">Login</router-link>
+    <router-link to="/main">Main</router-link>
+  </div>
+  <router-view></router-view>
+</div>
+
+<!--Vue-->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--Router-->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+  var LoginComponent = {
+    template: '<div>Login</div>'
+  }
+  var MainComponent = {
+    template: '<div>Main</div>'
+  }
+  let router = new VueRouter({
+    mode: 'history',
+    // 페이지의 라우팅 정보
+    routes: [
+      {
+        // 페이지의 url 이름
+        path: '/login',
+        // 해당 url 에서 표시될 컴포넌트
+        component: LoginComponent
+      },
+      {
+        path: '/main',
+        component: MainComponent
+      }
+    ]
+  });
+
+  new Vue({
+    el: '#app',
+    router: router,
+
+  });
+</script>
+</body>
+</html>
